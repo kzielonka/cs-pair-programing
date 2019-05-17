@@ -33,18 +33,6 @@ describe "activating code" do
     )
   end
 
-  it "raises invalid code for not set card" do
-    expect do
-      cs_premium_ids.exec(
-        CSPremiumIDs::Commands::ActivateCard.new(
-          premium_id:   "1000",
-          code:         "code",
-          activator_id: "activator-id",
-        )
-      )
-    end.to raise_exception CSPremiumIDs::Errors::InvalidCode
-  end
-
   it "raises invalid code for card with no activation code" do
     expect do
       cs_premium_ids.exec(
